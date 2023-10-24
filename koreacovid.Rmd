@@ -49,6 +49,11 @@ grid.arrange(plot_counts, plot_percentages, ncol = 2)
   
 ## Numerical results
 
+```{r}
+table1 <- xtabs(~Sex + result, data=krdata)
+rowPerc(table1)
+colPerc(table1)
+```
 
 ## Inferential results 
 
