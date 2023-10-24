@@ -31,6 +31,7 @@ state of a patient must be died or alive - we adjust that as well
 The data will be analysed by use of code blocks from the Cat~Cat helper file that have been edited to work for the data. Data will be examined with the intent of determining if there is a significant difference in case outcome of Covid patients, in terms of fatal or non-fatal, based on the sex of the patient.
 
 $H_0$ There is no difference between Covid fatal/non-fatal outcomes based on Sex
+
 $H_A$ There is a statistical difference between Covid fatal/non-fatal outcomes based on Sex  
 
 ## Graphical results - use ggplot commands to do this  
@@ -53,7 +54,7 @@ rowPerc(table1)
 colPerc(table1)
 ```
 
-
+The absolute numerical results confirm both trends observed in the graphical data. Men died from Covid at a higher rate than women and made up almost 2/3rds of the total deaths from Covid despite having a smaller overall sample size than women.
 
 ## Inferential results 
 
@@ -63,5 +64,8 @@ chisqtestGC(table1)
 fisher.test(table1)
 ```
 
+The small p-value(.0009) received from the fisher's exact test confirms that the difference(s) seen in the graphical and numerical data sets is significant and allows for the rejection of the null hypothesis.
+
 ## Conclusions
 
+Men who contracted Covid died at nearly twice the rate of women who contracted Covid. Additionally despite a smaller sample size men made up a larger absolute number of deaths from Covid than women. The obvious differences in the data combined with the confirmation provided by the inferential data analysis, especially the very small p-value(.0009), allows for the total rejection of the null hypothesis. There is a statistically significant difference in the rates of Covid fatalities based on sex.
