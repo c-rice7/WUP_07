@@ -42,7 +42,9 @@ plot_percentages <- barchartGC(~result + Sex, data = krdata, type = "percent", m
 
 grid.arrange(plot_counts, plot_percentages, ncol = 2)
 ```
-  
+
+The graphical data shows that both a larger absolute number of men had fatal outcomes as well as men making up almost 2/3rds of the number of overall fatal outcomes between the two sexes combined.
+
 ## Numerical results
 
 ```{r}
@@ -50,6 +52,8 @@ table1 <- xtabs(~Sex + result, data=krdata)
 rowPerc(table1)
 colPerc(table1)
 ```
+
+
 
 ## Inferential results 
 
