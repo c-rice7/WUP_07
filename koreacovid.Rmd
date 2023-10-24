@@ -28,21 +28,17 @@ state of a patient must be died or alive - we adjust that as well
   
 # Your Question - Is dying independent of sex?
 
+The data will be analysed by use of code blocks from the Cat~Cat helper file that have been edited to work for the data. Data will be examined with the intent of determining if there is a significant difference in case outcome of Covid patients, in terms of fatal or non-fatal, based on the sex of the patient.
 
-
-
-
+$H_0$ There is no difference between Covid fatal/non-fatal outcomes based on Sex
+$H_A$ There is a statistical difference between Covid fatal/non-fatal outcomes based on Sex  
 
 ## Graphical results - use ggplot commands to do this  
 
 ```{r}
-plot_counts <- barchartGC(~Sex + result, data = krdata,
-           main = "Comparison of Sex and Outcome(#)",
-           xlab = "Sex", ylab = "#")
+plot_counts <- barchartGC(~result + Sex, data = krdata, main = "Comparison of Sex and Outcome(#)", xlab = "Outcome", ylab = "Number")
 
-plot_percentages <- barchartGC(~Sex + result, data = krdata, type = "percent",
-           main = "Comparison of Sex and Outcome(%)",
-           xlab = "Sex", ylab = "Percentage")
+plot_percentages <- barchartGC(~result + Sex, data = krdata, type = "percent", main = "Comparison of Sex and Outcome(%)",xlab = "Outcome", ylab = "Percentage")
 
 grid.arrange(plot_counts, plot_percentages, ncol = 2)
 ```
