@@ -10,13 +10,14 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(digits=2)
+install.packages("gridExtra")
 require(tidyverse)
 require(tigerstats)
 require(lubridate)
-kRdata <- read.csv(file = 'kRdata.csv')
-kRdata <- kRdata %>%
+library(gridExtra)
+krdata <- read.csv(file = 'kRdata.csv')
+krdata <- krdata %>%
 mutate(across(where(is.character), as.factor))
-
 ```
 ### Data is from the Patient_Info dataset from South Korea 1 Jan to 1 May 2020
 ### This data was retrieved from a downloadable zip file from kaggle
@@ -34,14 +35,17 @@ state of a patient must be died or alive - we adjust that as well
 
 ## Graphical results - use ggplot commands to do this  
 
+```{r}
+plot_counts <- barchartGC(~Sex + result, data = krdata,
+           main = "Comparison of Sex and Outcome(#)",
+           xlab = "Sex", ylab = "#")
 
+plot_percentages <- barchartGC(~Sex + result, data = krdata, type = "percent",
+           main = "Comparison of Sex and Outcome(%)",
+           xlab = "Sex", ylab = "Percentage")
 
-  
-
-
-
-
-
+grid.arrange(plot_counts, plot_percentages, ncol = 2)
+```
   
 ## Numerical results
 
